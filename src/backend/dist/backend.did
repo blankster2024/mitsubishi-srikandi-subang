@@ -1,0 +1,451 @@
+type _ImmutableObjectStorageRefillResult = 
+ record {
+   success: opt bool;
+   topped_up_amount: opt nat;
+ };
+type _ImmutableObjectStorageRefillInformation = record {
+                                                  proposed_top_up_amount:
+                                                   opt nat;};
+type _ImmutableObjectStorageCreateCertificateResult = 
+ record {
+   blob_hash: text;
+   method: text;
+ };
+type WebsiteSettings = 
+ record {
+   contactEmail: text;
+   contactPhone: text;
+   contactWhatsapp: text;
+   ctaBannerImageId: opt nat;
+   dealerAddress: text;
+   facebookUrl: text;
+   footerAboutText: opt text;
+   homepageBannerMode: opt text;
+   instagramUrl: text;
+   lastUpdated: int;
+   mainBannerImageId: opt nat;
+   mainBannerImageId2: opt nat;
+   mainBannerVideoId: opt nat;
+   operationalHours: text;
+   salesConsultantName: opt text;
+   salesConsultantPhotoId: opt nat;
+   siteName: text;
+   tiktokUrl: text;
+   youtubeUrl: text;
+ };
+type VisitorStats = 
+ record {
+   onlineNow: nat;
+   pageViewsToday: nat;
+   totalVisitors: nat;
+   visitorsThisMonth: nat;
+   visitorsThisWeek: nat;
+   visitorsThisYear: nat;
+   visitorsToday: nat;
+   visitorsYesterday: nat;
+ };
+type VisitorSession = 
+ record {
+   firstVisit: int;
+   ipAddress: text;
+   isOnline: bool;
+   lastActivity: int;
+   sessionId: text;
+ };
+type Visit = 
+ record {
+   browser: text;
+   deviceType: text;
+   id: text;
+   ipAddress: text;
+   pageUrl: text;
+   referrer: text;
+   sessionId: text;
+   userAgent: text;
+   visitedAt: int;
+ };
+type VehicleVariant = 
+ record {
+   colors: vec VehicleColor;
+   hasPremiumOption: bool;
+   price: nat;
+   thumbnailUrl: text;
+   variantName: text;
+ };
+type VehicleColor = 
+ record {
+   colorImage: text;
+   colorName: text;
+   price: nat;
+   vehicleImage: text;
+ };
+type UserRole__1 = 
+ variant {
+   admin;
+   guest;
+   user;
+ };
+type UserRole = 
+ variant {
+   admin;
+   super_admin;
+ };
+type UserProfile = 
+ record {
+   email: text;
+   name: text;
+   phone: text;
+ };
+type Testimonial = 
+ record {
+   active: bool;
+   createdAt: int;
+   customerCity: text;
+   customerName: text;
+   customerPhotoId: text;
+   id: nat;
+   message: text;
+   rating: nat;
+   updatedAt: int;
+   vehicleName: text;
+   vehicleRef: text;
+   vehicleRefType: text;
+   vehicleUrl: text;
+ };
+type SpecTab = 
+ record {
+   columns: vec text;
+   rows: vec SpecRow;
+   title: text;
+ };
+type SpecRow = record {cells: vec SpecCell;};
+type SpecCell = 
+ record {
+   colSpan: nat;
+   value: text;
+ };
+type Promotion = 
+ record {
+   active: bool;
+   createdAt: int;
+   description: text;
+   endDate: int;
+   id: nat;
+   imageId: opt text;
+   slug: text;
+   startDate: int;
+   tags: vec text;
+   termsAndConditions: text;
+   title: text;
+   updatedAt: int;
+   vehicleRef: opt text;
+   vehicleRefType: opt text;
+ };
+type PassengerVehicle = 
+ record {
+   aftersaleImages: vec text;
+   brochureUrl: text;
+   createdAt: int;
+   ctaButtonLabel: text;
+   ctaButtonUrl: text;
+   ctaSubtext: text;
+   ctaText: text;
+   description: text;
+   displayOrder: nat;
+   footnotes: vec text;
+   heroBannerVideoId: opt text;
+   heroImageUrl: text;
+   id: nat;
+   publishStatus: bool;
+   slug: text;
+   specTabs: vec SpecTab;
+   titleImageUrl: opt text;
+   updatedAt: int;
+   variants: vec VehicleVariant;
+   vehicleName: text;
+   vehicleType: text;
+ };
+type MediaAsset = 
+ record {
+   filename: text;
+   id: nat;
+   mimeType: text;
+   size: nat;
+   storageUrl: text;
+   uploadedAt: int;
+   uploadedBy: principal;
+ };
+type Lead = 
+ record {
+   address: text;
+   createdAt: int;
+   dp: nat;
+   email: text;
+   id: text;
+   monthlyInstallment: nat;
+   name: text;
+   otr: nat;
+   phone: text;
+   source: text;
+   tenor: nat;
+   vehicleType: text;
+ };
+type CreditSettings = 
+ record {
+   adminFee: nat;
+   footnote: text;
+   insurancePercent: float64;
+   interestRatePerYear: float64;
+   provisionPercent: float64;
+   updatedAt: int;
+ };
+type CreditRequirementTab = 
+ record {
+   id: text;
+   order: nat;
+   requirements: vec CreditRequirementItem;
+   tabName: text;
+ };
+type CreditRequirementItem = record {item: text;};
+type CommercialVehicle = 
+ record {
+   brochureUrl: text;
+   cabinImage: text;
+   category: text;
+   chassisImage: text;
+   chassisPrice: nat;
+   createdAt: int;
+   description: text;
+   displayOrder: nat;
+   footnote: text;
+   heroImage: text;
+   heroSubtext: text;
+   heroTitle: text;
+   id: text;
+   isPublished: bool;
+   mainImages: vec text;
+   name: text;
+   slug: text;
+   specifications: vec CommercialSpecItem;
+   subCategory: text;
+   updatedAt: int;
+ };
+type CommercialSpecItem = 
+ record {
+   key: text;
+   value: text;
+ };
+type BlogPost = 
+ record {
+   author: text;
+   authorAvatarId: text;
+   authorTitle: text;
+   category: text;
+   commentCount: nat;
+   content: text;
+   coverImageId: text;
+   createdAt: int;
+   excerpt: text;
+   id: nat;
+   likeCount: nat;
+   published: bool;
+   publishedAt: int;
+   readTimeMinutes: nat;
+   slug: text;
+   tags: vec text;
+   title: text;
+   updatedAt: int;
+ };
+type BlogComment = 
+ record {
+   approved: bool;
+   content: text;
+   createdAt: int;
+   email: text;
+   id: nat;
+   name: text;
+   parentId: opt nat;
+   postId: nat;
+ };
+type BannerImageType = 
+ variant {
+   ctaBanner;
+   mainBanner;
+ };
+type BannerImage = 
+ record {
+   bannerType: BannerImageType;
+   filename: text;
+   id: nat;
+   mimeType: text;
+   size: nat;
+   storageUrl: text;
+   uploadedAt: int;
+   uploadedBy: principal;
+ };
+type AdminRecord = 
+ record {
+   createdAt: int;
+   "principal": principal;
+   role: UserRole;
+   updatedAt: int;
+ };
+service : {
+  _immutableObjectStorageBlobsAreLive: (hashes: vec blob) -> (vec bool) query;
+  _immutableObjectStorageBlobsToDelete: () -> (vec blob) query;
+  _immutableObjectStorageConfirmBlobDeletion: (blobs: vec blob) -> ();
+  _immutableObjectStorageCreateCertificate: (blobHash: text) ->
+   (_ImmutableObjectStorageCreateCertificateResult);
+  _immutableObjectStorageRefillCashier: (refillInformation:
+   opt _ImmutableObjectStorageRefillInformation) ->
+   (_ImmutableObjectStorageRefillResult);
+  _immutableObjectStorageUpdateGatewayPrincipals: () -> ();
+  _initializeAccessControl: () -> ();
+  addBlogComment: (postId: nat, parentId: opt nat, name: text, email: 
+   text, content: text) -> (nat);
+  addBlogPost: (title: text, slug: text, excerpt: text, content: text,
+   coverImageId: text, category: text, tags: vec text, author: text,
+   authorTitle: text, authorAvatarId: text, published: bool) -> (nat);
+  addCommercialVehicle: (name: text, slug: text, category: text, subCategory:
+   text, description: text, chassisPrice: nat, heroImage: text, heroTitle:
+   text, heroSubtext: text, mainImages: vec text, chassisImage: text,
+   cabinImage: text, brochureUrl: text, footnote: text, specifications:
+   vec CommercialSpecItem, isPublished: bool) -> (text);
+  addCreditRequirementTab: (tabName: text, requirements:
+   vec CreditRequirementItem, order: nat) -> (CreditRequirementTab);
+  addLead: (name: text, address: text, email: text, phone: text, vehicleType:
+   text, otr: nat, dp: nat, tenor: nat, monthlyInstallment: nat, source:
+   text, createdAt: int) -> (Lead);
+  addPassengerVehicle: (vehicleName: text, description: text, heroImageUrl:
+   text, brochureUrl: text, variants: vec VehicleVariant, specTabs:
+   vec SpecTab, publishStatus: bool, slug: text, footnotes: vec text,
+   aftersaleImages: vec text, ctaText: text, ctaSubtext: text,
+   ctaButtonLabel: text, ctaButtonUrl: text, vehicleType: text,
+   titleImageUrl: opt text, heroBannerVideoId: opt text) -> (nat);
+  addPromo: (title: text, slug: text, description: text, imageId: opt text,
+   vehicleRef: opt text, vehicleRefType: opt text, startDate: int, endDate:
+   int, termsAndConditions: text, tags: vec text, active: bool) -> (nat);
+  addTestimonial: (customerName: text, customerPhotoId: text, customerCity:
+   text, rating: nat, message: text, vehicleRef: text, vehicleRefType: 
+   text, vehicleName: text, vehicleUrl: text, active: bool) -> (nat);
+  approveBlogComment: (id: nat) -> (bool);
+  assignCallerUserRole: (user: principal, role: UserRole__1) -> ();
+  cleanupExpiredSessions: () -> ();
+  clearAllMediaAssets: () -> ();
+  deleteAdmin: ("principal": principal) -> ();
+  deleteBlogComment: (id: nat) -> (bool);
+  deleteBlogPost: (id: nat) -> (bool);
+  deleteCommercialVehicle: (id: text) -> (bool);
+  deleteCreditRequirementTab: (id: text) -> (bool);
+  deleteLead: (id: text) -> (bool);
+  deleteMediaAsset: (id: nat) -> (bool);
+  deletePassengerVehicle: (id: nat) -> (bool);
+  deletePromo: (id: nat) -> (bool);
+  deleteTestimonial: (id: nat) -> (bool);
+  forceBecomeAdmin: () -> (text);
+  forceSetMeAsSuperAdmin: () -> (text);
+  getAdmins: () -> (vec AdminRecord);
+  getAllBlogComments: () -> (vec BlogComment) query;
+  getAllBlogPosts: () -> (vec BlogPost) query;
+  getAllCommercialVehicles: () -> (vec CommercialVehicle) query;
+  getAllCreditRequirementTabs: () -> (vec CreditRequirementTab) query;
+  getAllLeads: () -> (vec Lead);
+  getAllMediaAssets: () -> (vec MediaAsset) query;
+  getAllPassengerVehicles: () -> (vec PassengerVehicle) query;
+  getAllPromos: () -> (vec Promotion) query;
+  getAllTestimonials: () -> (vec Testimonial) query;
+  getAllVisitorSessions: () -> (vec VisitorSession) query;
+  getAllVisits: () -> (vec Visit) query;
+  getApprovedCommentsByPostId: (postId: nat) -> (vec BlogComment) query;
+  getAssetsByDateRange: (startDate: int, endDate: int) ->
+   (vec MediaAsset) query;
+  getAssetsByUploader: (uploader: principal) -> (vec MediaAsset) query;
+  getBannerImages: () -> (vec BannerImage) query;
+  getBlogPostById: (id: nat) -> (opt BlogPost) query;
+  getBlogPostBySlug: (slug: text) -> (opt BlogPost) query;
+  getBlogPostsByCategory: (category: text) -> (vec BlogPost) query;
+  getCallerUserProfile: () -> (opt UserProfile) query;
+  getCallerUserRole: () -> (UserRole__1) query;
+  getCommercialVehicleBySlug: (categorySlug: text, vehicleSlug: text) ->
+   (opt CommercialVehicle) query;
+  getCommercialVehicleCountByCategory: (category: text) -> (nat) query;
+  getCommercialVehiclesByCategory: (category: text) ->
+   (vec CommercialVehicle) query;
+  getCreditSettings: () -> (CreditSettings) query;
+  getDailyVisitorTrend: () -> (vec record {
+                                     int;
+                                     nat;
+                                   }) query;
+  getMediaAssetById: (id: nat) -> (opt MediaAsset) query;
+  getMyRole: () -> (opt UserRole);
+  getOnlineUsers: () -> (nat) query;
+  getPassengerVehicleById: (id: nat) -> (opt PassengerVehicle) query;
+  getPromoById: (id: nat) -> (opt Promotion) query;
+  getPromoBySlug: (slug: text) -> (opt Promotion) query;
+  getPublicMediaAssetById: (id: nat) -> (opt MediaAsset) query;
+  getPublicVisitorStats: () -> (VisitorStats) query;
+  getPublishedBlogPosts: () -> (vec BlogPost) query;
+  getPublishedCommercialVehicles: () -> (vec CommercialVehicle) query;
+  getPublishedPassengerVehicles: () -> (vec PassengerVehicle) query;
+  getPublishedPromos: () -> (vec Promotion) query;
+  getPublishedTestimonials: () -> (vec Testimonial) query;
+  getStableVisitorStats: () -> (VisitorStats) query;
+  getTestimonialById: (id: nat) -> (opt Testimonial) query;
+  getTopPageViews: () -> (vec record {
+                                text;
+                                nat;
+                              }) query;
+  getTotalPageViews: () -> (nat) query;
+  getTotalVisitors: () -> (nat) query;
+  getUserProfile: (user: principal) -> (opt UserProfile) query;
+  getVisitorStats: () -> (VisitorStats) query;
+  getWebsiteSettings: () -> (WebsiteSettings) query;
+  initAdmin: () -> (text);
+  initializeFirstAdmin: () -> (text);
+  isCallerAdmin: () -> (bool) query;
+  likeBlogPost: (id: nat) -> ();
+  periodicCleanup: () -> ();
+  reorderCommercialVehicles: (ids: vec text) -> ();
+  reorderPassengerVehicles: (ids: vec nat) -> ();
+  saveCallerUserProfile: (profile: UserProfile) -> ();
+  togglePassengerVehiclePublishStatus: (id: nat) -> (bool);
+  trackVisitor: (sessionId: text, ipAddress: text, userAgent: text, pageUrl:
+   text, referrer: text, deviceType: text, browser: text) -> ();
+  updateAdminRole: ("principal": principal, newRole: UserRole) -> ();
+  updateBlogPost: (id: nat, title: text, slug: text, excerpt: text, content:
+   text, coverImageId: text, category: text, tags: vec text, author: 
+   text, authorTitle: text, authorAvatarId: text, published: bool) -> ();
+  updateCommercialVehicle: (id: text, name: text, slug: text, category: 
+   text, subCategory: text, description: text, chassisPrice: nat, heroImage:
+   text, heroTitle: text, heroSubtext: text, mainImages: vec text,
+   chassisImage: text, cabinImage: text, brochureUrl: text, footnote: 
+   text, specifications: vec CommercialSpecItem, isPublished: bool) -> (
+   bool);
+  updateCreditRequirementTab: (id: text, tabName: text, requirements:
+   vec CreditRequirementItem, order: nat) -> (CreditRequirementTab);
+  updateCreditSettings: (adminFee: nat, interestRatePerYear: float64,
+   insurancePercent: float64, provisionPercent: float64, footnote: text) ->
+   (CreditSettings);
+  updateMediaAsset: (id: nat, newFilename: text, newMimeType: text,
+   newStorageUrl: text, newSize: nat) -> ();
+  updatePassengerVehicle: (id: nat, vehicleName: text, description: text,
+   heroImageUrl: text, brochureUrl: text, variants: vec VehicleVariant,
+   specTabs: vec SpecTab, publishStatus: bool, slug: text, footnotes:
+   vec text, aftersaleImages: vec text, ctaText: text, ctaSubtext: text,
+   ctaButtonLabel: text, ctaButtonUrl: text, vehicleType: text,
+   titleImageUrl: opt text, heroBannerVideoId: opt text) -> ();
+  updatePromo: (id: nat, title: text, slug: text, description: text, imageId:
+   opt text, vehicleRef: opt text, vehicleRefType: opt text, startDate: 
+   int, endDate: int, termsAndConditions: text, tags: vec text, active:
+   bool) -> ();
+  updateTestimonial: (id: nat, customerName: text, customerPhotoId: text,
+   customerCity: text, rating: nat, message: text, vehicleRef: text,
+   vehicleRefType: text, vehicleName: text, vehicleUrl: text, active:
+   bool) -> ();
+  updateWebsiteSettings: (newSettings: WebsiteSettings) -> ();
+  uploadBannerImage: (filename: text, bannerType: BannerImageType, mimeType:
+   text, storageUrl: text, fileSize: nat) -> (nat);
+  uploadMediaAsset: (filename: text, mimeType: text, storageUrl: text,
+   fileSize: nat) -> (nat);
+  whoAmI: () -> (text);
+}

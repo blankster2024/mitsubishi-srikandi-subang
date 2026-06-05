@@ -1,0 +1,621 @@
+// Version: 1.0.0
+type AdminRecord__862792469 =
+  {
+    createdAt : Int;
+    principal : Principal;
+    role : UserRole__599675725;
+    updatedAt : Int
+  };
+type ArticleComment__715246007 =
+  {
+    articleId : Nat;
+    content : Text;
+    id : Nat;
+    timestamp : Int;
+    userId : Principal
+  };
+type BannerImageType__165542223 = {#ctaBanner; #mainBanner};
+type BannerImage__1024696030 =
+  {
+    bannerType : BannerImageType__165542223;
+    filename : Text;
+    id : Nat;
+    mimeType : Text;
+    size : Nat;
+    storageUrl : Text;
+    uploadedAt : Int;
+    uploadedBy : Principal
+  };
+type BlogComment__431607086 =
+  {
+    approved : Bool;
+    content : Text;
+    createdAt : Int;
+    email : Text;
+    id : Nat;
+    name : Text;
+    parentId : ?Nat;
+    postId : Nat
+  };
+type BlogPost__543622485 =
+  {
+    author : Text;
+    authorAvatarId : Text;
+    authorTitle : Text;
+    category : Text;
+    commentCount : Nat;
+    content : Text;
+    coverImageId : Text;
+    createdAt : Int;
+    excerpt : Text;
+    id : Nat;
+    likeCount : Nat;
+    published : Bool;
+    publishedAt : Int;
+    readTimeMinutes : Nat;
+    slug : Text;
+    tags : [Text];
+    title : Text;
+    updatedAt : Int
+  };
+type Color__77327923 =
+  {active : Bool; colorCode : ?Text; id : Nat; name : Text; vehicleId : Nat};
+type CommercialSpecItem__578764130 = {key : Text; value : Text};
+type CommercialVehicleCategory__632934902 =
+  {
+    description : Text;
+    displayOrder : Nat;
+    id : Nat;
+    imageId : ?Text;
+    name : Text
+  };
+type CommercialVehicle__1051725936 =
+  {
+    brochureUrl : Text;
+    cabinImage : Text;
+    category : Text;
+    chassisImage : Text;
+    chassisPrice : Nat;
+    createdAt : Int;
+    description : Text;
+    displayOrder : Nat;
+    footnote : Text;
+    heroImage : Text;
+    heroSubtext : Text;
+    heroTitle : Text;
+    id : Text;
+    isPublished : Bool;
+    mainImages : [Text];
+    name : Text;
+    slug : Text;
+    specifications : [CommercialSpecItem__578764130];
+    subCategory : Text;
+    updatedAt : Int
+  };
+type ContactSubmission__390548495 =
+  {
+    email : Text;
+    id : Nat;
+    message : Text;
+    name : Text;
+    timestamp : Int;
+    userId : ?Principal
+  };
+type CreditRequirementItem__695577359 = {item : Text};
+type CreditRequirementTab__339171183 =
+  {
+    id : Text;
+    order : Nat;
+    requirements : [CreditRequirementItem__695577359];
+    tabName : Text
+  };
+type CreditSettings__165954057 =
+  {
+    adminFee : Nat;
+    footnote : Text;
+    insurancePercent : Float;
+    interestRatePerYear : Float;
+    provisionPercent : Float;
+    updatedAt : Int
+  };
+type CreditSimulation__726064201 =
+  {
+    amount : Nat;
+    id : Nat;
+    term : Nat;
+    timestamp : Int;
+    userId : Principal;
+    vehicleId : Nat
+  };
+type DailyStats__26569531 = {date : Int; pageViews : Nat; visitors : Nat};
+type Data__791452850<K, V> =
+  {var count : Nat__490723111; kvs : [var ?(K, V)]};
+type Feature__344616857 =
+  {description : Text; id : Nat; name : Text; vehicleId : Nat};
+type Internal__8484328<K, V> =
+  {children : [var ?Node__46230540<K, V>]; data : Data__791452850<K, V>};
+type Lead__21276013 =
+  {
+    address : Text;
+    createdAt : Int;
+    dp : Nat;
+    email : Text;
+    id : Text;
+    monthlyInstallment : Nat;
+    name : Text;
+    otr : Nat;
+    phone : Text;
+    source : Text;
+    tenor : Nat;
+    vehicleType : Text
+  };
+type Leaf__809889148<K, V> = {data : Data__791452850<K, V>};
+type Map__158565046<K, V> = Map__297112838<K, V>;
+type Map__297112838<K, V> =
+  {var root : Node__46230540<K, V>; var size : Nat__490723111};
+type Map__605269027<K, V> = Map__158565046<K, V>;
+type MediaAsset__400712315 =
+  {
+    filename : Text;
+    id : Nat;
+    mimeType : Text;
+    size : Nat;
+    storageUrl : Text;
+    uploadedAt : Int;
+    uploadedBy : Principal
+  };
+type MetaEntry__990774574 = {key : Text; lastUpdated : Int; value : Text};
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__46230540<K, V> =
+  {#internal : Internal__8484328<K, V>; #leaf : Leaf__809889148<K, V>};
+type PassengerVehicleV2__323183299 =
+  {
+    aftersaleImages : [Text];
+    brochureUrl : Text;
+    createdAt : Int;
+    ctaButtonLabel : Text;
+    ctaButtonUrl : Text;
+    ctaSubtext : Text;
+    ctaText : Text;
+    description : Text;
+    footnotes : [Text];
+    heroImageUrl : Text;
+    id : Nat;
+    publishStatus : Bool;
+    slug : Text;
+    specTabs : [SpecTab__400975195];
+    updatedAt : Int;
+    variants : [VehicleVariant__808759475];
+    vehicleName : Text;
+    vehicleType : Text
+  };
+type PassengerVehicleV3__137047478 =
+  {
+    aftersaleImages : [Text];
+    brochureUrl : Text;
+    createdAt : Int;
+    ctaButtonLabel : Text;
+    ctaButtonUrl : Text;
+    ctaSubtext : Text;
+    ctaText : Text;
+    description : Text;
+    displayOrder : Nat;
+    footnotes : [Text];
+    heroImageUrl : Text;
+    id : Nat;
+    publishStatus : Bool;
+    slug : Text;
+    specTabs : [SpecTab__400975195];
+    titleImageUrl : ?Text;
+    updatedAt : Int;
+    variants : [VehicleVariant__808759475];
+    vehicleName : Text;
+    vehicleType : Text
+  };
+type PassengerVehicle__246017881 =
+  {
+    aftersaleImages : [Text];
+    brochureUrl : Text;
+    createdAt : Int;
+    ctaButtonLabel : Text;
+    ctaButtonUrl : Text;
+    ctaSubtext : Text;
+    ctaText : Text;
+    description : Text;
+    displayOrder : Nat;
+    footnotes : [Text];
+    heroBannerVideoId : ?Text;
+    heroImageUrl : Text;
+    id : Nat;
+    publishStatus : Bool;
+    slug : Text;
+    specTabs : [SpecTab__400975195];
+    titleImageUrl : ?Text;
+    updatedAt : Int;
+    variants : [VehicleVariant__808759475];
+    vehicleName : Text;
+    vehicleType : Text
+  };
+type ProductLike__1063835056 =
+  {id : Nat; timestamp : Int; userId : Principal; vehicleId : Nat};
+type ProductShare__924277030 =
+  {id : Nat; timestamp : Int; userId : Principal; vehicleId : Nat};
+type Promotion__546231843 =
+  {
+    active : Bool;
+    createdAt : Int;
+    description : Text;
+    endDate : Int;
+    id : Nat;
+    imageId : ?Text;
+    slug : Text;
+    startDate : Int;
+    tags : [Text];
+    termsAndConditions : Text;
+    title : Text;
+    updatedAt : Int;
+    vehicleRef : ?Text;
+    vehicleRefType : ?Text
+  };
+type SpecCell__729475705 = {colSpan : Nat; value : Text};
+type SpecRow__724168931 = {cells : [SpecCell__729475705]};
+type SpecTab__400975195 =
+  {columns : [Text]; rows : [SpecRow__724168931]; title : Text};
+type Specification__373448339 =
+  {id : Nat; name : Text; value : Text; vehicleId : Nat};
+type Testimonial__393323594 =
+  {
+    active : Bool;
+    createdAt : Int;
+    customerCity : Text;
+    customerName : Text;
+    customerPhotoId : Text;
+    id : Nat;
+    message : Text;
+    rating : Nat;
+    updatedAt : Int;
+    vehicleName : Text;
+    vehicleRef : Text;
+    vehicleRefType : Text;
+    vehicleUrl : Text
+  };
+type UserProfile__491224006 = {email : Text; name : Text; phone : Text};
+type UserRole__1054455867 = {#admin; #guest; #user};
+type UserRole__599675725 = {#admin; #super_admin};
+type VariantColorMapping__531933865 =
+  {
+    available : Bool;
+    colorId : Nat;
+    id : Nat;
+    variantId : Nat;
+    vehicleId : Nat
+  };
+type Variant__742559592 =
+  {
+    displayOrder : Nat;
+    id : Nat;
+    name : Text;
+    overridePrice : ?Nat;
+    vehicleId : Nat
+  };
+type VehicleColor__431817987 =
+  {colorImage : Text; colorName : Text; price : Nat; vehicleImage : Text};
+type VehicleImage__671605613 =
+  {
+    colorId : ?Nat;
+    default : Bool;
+    id : Nat;
+    imageId : Text;
+    variantId : ?Nat;
+    vehicleId : Nat
+  };
+type VehicleVariant__808759475 =
+  {
+    colors : [VehicleColor__431817987];
+    hasPremiumOption : Bool;
+    price : Nat;
+    thumbnailUrl : Text;
+    variantName : Text
+  };
+type Vehicle__218238674 =
+  {
+    basePrice : Nat;
+    description : Text;
+    id : Nat;
+    publishStatus : Bool;
+    vehicleName : Text
+  };
+type Visit__635288371 =
+  {
+    browser : Text;
+    deviceType : Text;
+    id : Text;
+    ipAddress : Text;
+    pageUrl : Text;
+    referrer : Text;
+    sessionId : Text;
+    userAgent : Text;
+    visitedAt : Int
+  };
+type VisitorSession__302454100 =
+  {
+    firstVisit : Int;
+    ipAddress : Text;
+    isOnline : Bool;
+    lastActivity : Int;
+    sessionId : Text
+  };
+type WebsiteSettingsBase__873259620 =
+  {
+    contactEmail : Text;
+    contactPhone : Text;
+    contactWhatsapp : Text;
+    ctaBannerImageId : ?Nat;
+    dealerAddress : Text;
+    facebookUrl : Text;
+    footerAboutText : ?Text;
+    instagramUrl : Text;
+    lastUpdated : Int;
+    mainBannerImageId : ?Nat;
+    operationalHours : Text;
+    salesConsultantName : ?Text;
+    salesConsultantPhotoId : ?Nat;
+    siteName : Text;
+    tiktokUrl : Text;
+    youtubeUrl : Text
+  };
+actor {
+  stable var _websiteSettingsRuntime :
+    {
+      contactEmail : Text;
+      contactPhone : Text;
+      contactWhatsapp : Text;
+      ctaBannerImageId : ?Nat;
+      dealerAddress : Text;
+      facebookUrl : Text;
+      footerAboutText : ?Text;
+      instagramUrl : Text;
+      lastUpdated : Int;
+      mainBannerImageId : ?Nat;
+      operationalHours : Text;
+      salesConsultantName : ?Text;
+      salesConsultantPhotoId : ?Nat;
+      siteName : Text;
+      tiktokUrl : Text;
+      youtubeUrl : Text
+    };
+  stable accessControlState :
+    {
+      var adminAssigned : Bool;
+      userRoles : Map__605269027<Principal, UserRole__1054455867>
+    };
+  stable var adminStore : [(Principal, AdminRecord__862792469)];
+  stable articleComments :
+    {
+      var root : Node__46230540<Nat, ArticleComment__715246007>;
+      var size : Nat__490723111
+    };
+  stable var bannerImageIdCounter : Nat;
+  stable bannerImages :
+    {
+      var root : Node__46230540<Nat, BannerImage__1024696030>;
+      var size : Nat__490723111
+    };
+  stable var blogCommentIdCounter : Nat;
+  stable blogComments :
+    {
+      var root : Node__46230540<Nat, BlogComment__431607086>;
+      var size : Nat__490723111
+    };
+  stable var blogPostIdCounter : Nat;
+  stable blogPosts :
+    {
+      var root : Node__46230540<Nat, BlogPost__543622485>;
+      var size : Nat__490723111
+    };
+  stable var colorIdCounter : Nat;
+  stable colors :
+    {
+      var root : Node__46230540<Nat, Color__77327923>;
+      var size : Nat__490723111
+    };
+  stable var commentCounter : Nat;
+  stable var commercialCategoryIdCounter : Nat;
+  stable commercialVehicleCategories :
+    {
+      var root : Node__46230540<Nat, CommercialVehicleCategory__632934902>;
+      var size : Nat__490723111
+    };
+  stable var commercialVehicleIdCounter : Nat;
+  stable commercialVehicles :
+    {
+      var root : Node__46230540<Text, CommercialVehicle__1051725936>;
+      var size : Nat__490723111
+    };
+  stable var contactCounter : Nat;
+  stable contactSubmissions :
+    {
+      var root : Node__46230540<Nat, ContactSubmission__390548495>;
+      var size : Nat__490723111
+    };
+  stable var creditRequirementTabIdCounter : Nat;
+  stable creditRequirementTabs :
+    {
+      var root : Node__46230540<Text, CreditRequirementTab__339171183>;
+      var size : Nat__490723111
+    };
+  stable var creditSettings : ?CreditSettings__165954057;
+  stable var creditSimCounter : Nat;
+  stable creditSimulations :
+    {
+      var root : Node__46230540<Nat, CreditSimulation__726064201>;
+      var size : Nat__490723111
+    };
+  stable dailySessionSet :
+    {var root : Node__46230540<Text, Bool>; var size : Nat__490723111};
+  stable dailyStats :
+    {
+      var root : Node__46230540<Int, DailyStats__26569531>;
+      var size : Nat__490723111
+    };
+  stable var featureIdCounter : Nat;
+  stable features :
+    {
+      var root : Node__46230540<Nat, Feature__344616857>;
+      var size : Nat__490723111
+    };
+  stable idMapping :
+    {var root : Node__46230540<Text, Nat>; var size : Nat__490723111};
+  stable var imageIdCounter : Nat;
+  stable var leadIdCounter : Nat;
+  stable leadsMap :
+    {
+      var root : Node__46230540<Text, Lead__21276013>;
+      var size : Nat__490723111
+    };
+  stable var likeCounter : Nat;
+  stable var mappingIdCounter : Nat;
+  stable var mediaAssetIdCounter : Nat;
+  stable mediaAssets :
+    {
+      var root : Node__46230540<Nat, MediaAsset__400712315>;
+      var size : Nat__490723111
+    };
+  stable metaStore :
+    {
+      var root : Node__46230540<Text, MetaEntry__990774574>;
+      var size : Nat__490723111
+    };
+  stable pageViewsMap :
+    {var root : Node__46230540<Text, Nat>; var size : Nat__490723111};
+  stable var passengerVehicleIdCounter : Nat;
+  stable passengerVehicles :
+    {
+      var root : Node__46230540<Nat, PassengerVehicleV3__137047478>;
+      var size : Nat__490723111
+    };
+  stable passengerVehiclesData :
+    {
+      var root : Node__46230540<Nat, PassengerVehicle__246017881>;
+      var size : Nat__490723111
+    };
+  stable productLikes :
+    {
+      var root : Node__46230540<Nat, ProductLike__1063835056>;
+      var size : Nat__490723111
+    };
+  stable productShares :
+    {
+      var root : Node__46230540<Nat, ProductShare__924277030>;
+      var size : Nat__490723111
+    };
+  stable var promotionIdCounter : Nat;
+  stable promotions :
+    {
+      var root : Node__46230540<Nat, Promotion__546231843>;
+      var size : Nat__490723111
+    };
+  stable var shareCounter : Nat;
+  stable var specIdCounter : Nat;
+  stable specifications :
+    {
+      var root : Node__46230540<Nat, Specification__373448339>;
+      var size : Nat__490723111
+    };
+  stable var stableBlogCommentIdCounter : Nat;
+  stable var stableBlogComments : [(Nat, BlogComment__431607086)];
+  stable var stableBlogPostIdCounter : Nat;
+  stable var stableBlogPosts : [(Nat, BlogPost__543622485)];
+  stable var stableCommercialVehicleIdCounter : Nat;
+  stable var stableCommercialVehicles :
+    [(Text, CommercialVehicle__1051725936)];
+  stable var stableCreditRequirementTabs :
+    [(Text, CreditRequirementTab__339171183)];
+  stable var stableLeads : [(Text, Lead__21276013)];
+  stable var stableMediaAssetIdCounter : Nat;
+  stable var stableMediaAssets : [MediaAsset__400712315];
+  stable var stablePassengerVehicleIdCounter : Nat;
+  stable var stablePassengerVehicles_v2 : [PassengerVehicleV2__323183299];
+  stable var stablePassengerVehicles_v3 : [PassengerVehicleV3__137047478];
+  stable var stablePassengerVehicles_v4 : [PassengerVehicle__246017881];
+  stable var stablePromotionIdCounter : Nat;
+  stable var stablePromotions : [(Nat, Promotion__546231843)];
+  stable var stableTestimonialIdCounter : Nat;
+  stable var stableTestimonials : [(Nat, Testimonial__393323594)];
+  stable var testimonialIdCounter : Nat;
+  stable testimonials :
+    {
+      var root : Node__46230540<Nat, Testimonial__393323594>;
+      var size : Nat__490723111
+    };
+  stable userProfiles :
+    {
+      var root : Node__46230540<Principal, UserProfile__491224006>;
+      var size : Nat__490723111
+    };
+  stable variantColorMappings :
+    {
+      var root : Node__46230540<Nat, VariantColorMapping__531933865>;
+      var size : Nat__490723111
+    };
+  stable var variantIdCounter : Nat;
+  stable variants :
+    {
+      var root : Node__46230540<Nat, Variant__742559592>;
+      var size : Nat__490723111
+    };
+  stable var vehicleIdCounter : Nat;
+  stable vehicleImages :
+    {
+      var root : Node__46230540<Nat, VehicleImage__671605613>;
+      var size : Nat__490723111
+    };
+  stable vehicles :
+    {
+      var root : Node__46230540<Nat, Vehicle__218238674>;
+      var size : Nat__490723111
+    };
+  stable var visitIdCounter : Nat;
+  stable visitorSessions :
+    {
+      var root : Node__46230540<Text, VisitorSession__302454100>;
+      var size : Nat__490723111
+    };
+  stable var visitorStats :
+    {
+      onlineNow : Nat;
+      pageViewsToday : Nat;
+      totalVisitors : Nat;
+      visitorsThisMonth : Nat;
+      visitorsThisWeek : Nat;
+      visitorsThisYear : Nat;
+      visitorsToday : Nat;
+      visitorsYesterday : Nat
+    };
+  stable visits :
+    {
+      var root : Node__46230540<Text, Visit__635288371>;
+      var size : Nat__490723111
+    };
+  stable var websiteSettings :
+    {
+      contactEmail : Text;
+      contactPhone : Text;
+      contactWhatsapp : Text;
+      ctaBannerImageId : ?Nat;
+      dealerAddress : Text;
+      facebookUrl : Text;
+      instagramUrl : Text;
+      lastUpdated : Int;
+      mainBannerImageId : ?Nat;
+      operationalHours : Text;
+      siteName : Text;
+      tiktokUrl : Text;
+      youtubeUrl : Text
+    };
+  stable var websiteSettings_v2 : ?WebsiteSettingsBase__873259620;
+  stable var ws_ext_homepageBannerMode : Text;
+  stable var ws_ext_mainBannerImageId2 : ?Nat;
+  stable var ws_ext_mainBannerVideoId : ?Nat
+};
